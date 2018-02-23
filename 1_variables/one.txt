@@ -1,0 +1,147 @@
+# Lesson 2
+
+## Numbers (Integers)
+
+> Numbers	can	be	integers	(whole	numbers,	such	as	3)	or	floating	point	numbers (often	referred	to	as	just	'decimals'	or	'floats',	such	as	3.14159).
+
+	typeof	42;	//	integer <<	'number'
+	typeof	3.14159;	//	floating	point	decimal <<	'number'
+
+### Number	Methods
+
+> Numbers	also	have	some	built-in	methods,	although	you	need	to	be	careful	when using	the	dot	notation	with	number	literals	that	are	integers	because	JavaScript will	confuse	the	dot	with	a	decimal	point
+
+	Use	two	dots:
+	5..toExponential(); // "5e+0"
+	Place	the	integer	in	parentheses:
+	(5).toExponential();
+
+> The	toFixed()	method	rounds	a	number	to	a	fixed	number	of	decimal	places:
+
+	const	PI	=	3.1415926; <<	undefined
+	PI.toFixed(3);	//	only	one	dot	is	needed	when	using	constants	or	variables <<	"3.142
+
+> Note	that	the	value	is	returned	as	a	string,	rather	than	a	number. 
+
+### Arithmetic	Operations
+
+> All	the	usual	arithmetic	operations	can	be	carried	out	in	JavaScript. 
+
+	Addition:
+	5	+	4.3; <<	9.3																
+	Subtraction:
+	6	-	11; >>	-5
+
+	Multiplication:
+	6	*	7; <<	42
+	Division:
+	3/7; <<0.42857142857142855																
+	Exponentiation:
+	2**3;	//	introduced	in	ES2017 <<	8																
+< You	can	also	calculate	the	remainder	of	a	division	using	the	%	operator:
+
+	23%6;	//	the	same	as	asking	'what	is	the	remainder	when	13	is	divided	by	6' <<	5			
+
+### Changing The Value of Variable
+
+> If	a	variable	has	been	assigned	a	numerical	value,	it	can	be	increased or decreased
+
+	let points = 0;
+	let maxPoints = 100;
+	console.log(points);
+	console.log(maxPoints);
+	points = points + 10;
+	maxPoints = maxPoints - 10;
+	console.log(points);
+	console.log(maxPoints);
+
+> A	shorthand	for	doing	this	is	to	use	the	compound	assignment	operator,	+= or -=
+
+	points += 10;
+	console.log(points);
+	maxPoints -= 10;
+	console.log(maxPoints);
+
+### Incrementing / Decrementing Values
+
+> If	you	only	want	to	increment	a	value	by	1,	you	can	use	the	++	operator
+
+	points++;
+	console.log(points);
+
+> There	is	also	a	--	operator	that	works	in	the	same	way
+
+	maxPoints--;
+	console.log(maxPoints);
+
+### Converting	Strings	to	Numbers
+
+> The	best	way	to	change	a	string	to	a	number	is	to	use	the	Number	function
+	
+	let twentyThree = '23';
+	let numbs = Number(twentyThree);
+	console.log(numbs);
+
+> If	the	string	cannot	be	converted	into	a	number,	then	NaN	is	returned
+
+	let wontWork = "Hello";
+	console.log(Number(wontWork)); // NaN
+
+> There	are	a	few	'tricks'	that	can	also	be	used	to	convert	a	string	into	a	number 
+
+	let answer = '10' * 1
+	console.log(answer);
+	console.log(typeof(answer)); // number
+
+> not really recommended
+
+### Converting Numbers to Strings
+
+> The	preferred	way	of	changing	a	number	to	a	string	is	to	use	the	String function
+
+	let twentyThree = 23;
+	let numbs = String(twentyThree);
+	console.log(numbs);
+
+> Another	option	is	to	use	the	toString()	method
+
+	console.log(twentyThree..toString());
+
+## Undefined
+
+> Undefined	is	the	value	given	to	variables	that	have	not	been	assigned	a	value
+
+> 	It	can	also	occur	if	an	object’s	property	doesn’t exist	or	a	function	has	a	missing	parameter.	It	is	basically	JavaScript’s	way	of saying	"I	can’t	find	a	value	for	this." 
+
+	console.log(teeth); // we havent defined teeth yet
+	console.log(Number()); // missing parameter, what are we turning into a number?
+
+## Null
+
+> Null	means	'no	value'.	It	can	be	thought	of	as	a	placeholder	that	JavaScript	uses to	say	"there	should	be	a	value	here,	but	there	isn’t	at	the	moment." 
+
+	console.log(10 + null); // behaves like zero (answer: 10)
+
+> In	general,	values	tend	to	be	set	to	undefined	by	JavaScript,	whereas	values	are usually	set	to	null	manually	by	the	programmer. 
+
+## Booleans
+
+> There	are	only	two	Boolean	values:	true	and	false.
+
+> Boolean	values	are	fundamental	in	the	logical	statements	that	make	up	a computer	program.	Every	value	in	JavaScript	has	a	Boolean	value	and	most	of them	are	true	(these	are	known	as	truthy	values). 
+
+	console.log(Boolean('hello')) // true
+	console.log(Boolean(102)) // true
+	console.log(Boolean(0)) // false
+
+> Only	9	values	are	always	false	and	these	are	known	as	falsy	values:
+
+	*	""	//	double	quoted	empty	string	literal 
+	*	''	//	single	quoted	empty	string	literal 
+	*	``	//	empty	template	literal 
+	*	0 
+	*	-0	//	considered	different	to	0	by	JavaScript! 
+	*	NaN 
+	*	false 
+	*	null 
+	*	undefined
