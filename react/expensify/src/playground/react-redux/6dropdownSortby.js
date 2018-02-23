@@ -1,7 +1,11 @@
+/*
+ Creating a dropdown select filter to filter through expenses
+*/
+
+// ./components/ExpenseListFilters
 import React from 'react';
 import {connect} from 'react-redux';
 import {setTextFilter, sortByDate, sortByAmount} from '../actions/filters';
-
 const ExpenseListFilters = (props) => (
 	<div>
 		<input 
@@ -28,7 +32,6 @@ const ExpenseListFilters = (props) => (
 		</select>
 	</div>
 );
-
 const mapStateToProps = (state) => {
 	return {
 		filters: state.filters

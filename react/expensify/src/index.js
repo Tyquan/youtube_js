@@ -5,7 +5,7 @@ import './index.css';
 import AppRouter from './routers/AppRouter';
 import configureStore from './store/configureStore';
 import { addExpense } from './actions/expenses';
-import { setTextFilter } from './actions/filters';
+//import { setTextFilter } from './actions/filters';
 import getVisibleExpenses from './selectors/expenses';
 import './firebase/firebase';
 import registerServiceWorker from './registerServiceWorker';
@@ -17,16 +17,17 @@ const store = configureStore();
 
 store.dispatch(addExpense({
 	description: 'Water Bill',
-	amount: 10000,
-	createdAt: 1000
+	amount: 10000
 }));
 store.dispatch(addExpense({
 	description: 'Gas Bill',
 	amount: 10500,
 	createdAt: 3000
 }));
-// filter only things with water
-store.dispatch(setTextFilter('bill'));
+store.dispatch(addExpense({
+	description: 'Rent',
+	amount: 150595
+}));
 
 const state = store.getState();
 const visibleExpenses = getVisibleExpenses(state.expenses, state.filters);
