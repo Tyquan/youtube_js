@@ -1,15 +1,28 @@
 /*
-	Creating Expense Add / Edit Form
+	Setting up a Datepicker
 */
 
-// ./components/ExpenseForm.js
-import React from 'react';
+// yarn add react-addons-shallow-compare@15.6.0
+// yarn add moment@2.18.1
+// yarn add react-dates@12.7.0
 
+/*
+	ExpenseForm.js
+*/
+import React from 'react';
+import moment from 'moment';
+import { SingleDatePicker } from 'react-dates';
+import 'react-dates/lib/css/_datepicker.css';
+// momentjs easy date formating
+// const now = moment();
+// console.log(now.format('MMM Do, YYYY'));
 export default class ExpenseForm extends React.Component {
   state = {
     description: '',
     note: '',
-    amount: ''
+    amount: '',
+    createdAt: moment(),
+    calendarFocused: false
   };
   onDescriptionChange = (e) => {
     const description = e.target.value;
@@ -25,6 +38,14 @@ export default class ExpenseForm extends React.Component {
     if (amount.match(/^\d*(\.\d{0,2})?$/)) {
       this.setState(() => ({ amount }));
     }
+  }
+  onDateChange = (createdAt) => {
+    this.setState(() => ({ createdAt }));
+  }
+  onFocusChange = ({ focused }) => {
+    this.setState(() => ({
+      calendarFocused: focused
+    }));
   }
   render() {
     return (
@@ -44,6 +65,15 @@ export default class ExpenseForm extends React.Component {
             onChange={this.onAmountChange}
           />
           <br />
+          <SingleDatePicker 
+            date={this.state.createdAt}
+            onDateChange={this.onDateChange}
+            focused={this.state.calendarFocused}
+            onFocusChange={this.onFocusChange}
+            numberOfMonths={1}
+            isOutsideRange={(day) => false}
+          />
+          <br />
           <textarea
             value={this.state.note}
             onChange={this.onNoteChange}
@@ -57,24 +87,3 @@ export default class ExpenseForm extends React.Component {
     );
   }
 }
-
-
-
-
-
-
-
-
-
-// ./components/AddExpensePage.js
-import React from 'react';
-import ExpenseForm from './ExpenseForm';
-const AddExpensePage = () => {
-	return (
-		<div>
-			<h2>Add Expense</h2>
-			<ExpenseForm />
-		</div>
-	);
-};
-export default AddExpensePage;
