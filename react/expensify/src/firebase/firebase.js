@@ -11,6 +11,6 @@ import * as firebase from "firebase";
 
 firebase.initializeApp(config);
 
-firebase.database().ref().set({
-	name: 'Tyquan Reddick'
-});
+const database = firebase.database();
+
+export { firebase, database as default };
