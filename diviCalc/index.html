@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Stock Dividen Calculator</title>
+</head>
+<body>
+
+	
+
+	<form id="form1">
+		<label>Stock Amount</label>
+		<input type="number" name="stock" value="stock">
+		<br />
+		<label>Divi Amount</label>
+		<input type="number" name="divi" value="divi">
+		<br />
+		<label>Buy Amount</label>
+		<input type="number" name="amount" value="amount">
+		<br />
+		<button onclick="myFunction()" id="btn">Calculate</button>
+	</form>
+
+	<div id="demo"></div>
+
+	<script type="text/javascript">
+		// const btn = document.getElementById('btn');
+		// btn.addEventListener('onClick', (e) => {
+		// 	var x = document.getElementById("frm1");
+		//   var text = "";
+		//   var i;
+		//     for (i = 0; i < x.length ;i++) {
+		//         text += x.elements[i].value + "<br>";
+		//     }
+		//     document.getElementById("demo").innerHTML = text;
+		// });
+		function myFunction(e) {
+			var x = document.getElementById("frm1");
+			var text = "";
+			var i;
+		    for (i = 0; i < x.length ;i++) {
+		        text += x.elements[i].value + "<br>";
+		    }
+		    document.getElementById("demo").innerHTML = text;
+		}
+	</script>
+
+</body>
+</html>
